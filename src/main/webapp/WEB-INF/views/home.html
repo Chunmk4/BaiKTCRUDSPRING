@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<h1>List</h1>
+<form action="/students/search">
+    <input type="text" name="keyword" placeholder="Name...">
+    <button type="submit">Tìm Kiếm</button>
+</form>
+<button><a th:href="@{/students/add-student}">Thêm Học Viên</a></button>
+<table border="1px" >
+    <tr>
+        <th>#</th>
+        <td>Name</td>
+        <td>TheoryScore</td>
+        <td>PracticeScore</td>
+        <td>Descriptions</td>
+        <td>Evaluation</td>
+        <td>Class_id</td>
+        <td></td>
+    </tr>
+    <tr th:each="student, studentStat : ${students}">
+        <td th:text="${studentStat.count}"></td>
+        <td th:text="${student.name}" th:href="@{'/students/view/' + ${student.id}}"></td>
+        <td th:text="${student.theoryScore}"></td>
+        <td th:text="${student.practiceScore}"></td>
+        <td th:text="${student.descriptions}"></td>
+        <td th:text="${student.evaluation}"></td>
+        <td th:text="${student.class_id}"></td>
+        <td>
+            <button><a th:href="@{'/students/edit/' + ${student.id}}">Sửa</a></button>
+
+            <button><a th:href="@{'/students/delete/' + ${student.id}}">Xóa</a></button>
+
+            <button><a th:href="@{'/students/view/' + ${student.id}}">View</a></button>
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

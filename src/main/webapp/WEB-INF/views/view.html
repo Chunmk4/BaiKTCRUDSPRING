@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table,td{
+        border: 1px solid;
+    }
+</style>
+<body>
+<table th:object="${student}">
+    <tr>
+        <td>
+            <label>ID: </label>
+            <span th:text="${student.id}"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>NAME: </label>
+            <span th:text="${student.name}"></span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label>TheoryScore: </label>
+            <span th:text="${student.theoryScore}"></span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label>PracticeScore: </label>
+            <span th:text="${student.practiceScore}"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Descriptions: </label>
+            <span th:text="${student.descriptions}"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Evaluation: </label>
+            <span th:text="${student.evaluation}"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Class: </label>
+            <span th:text="${student.class_id}"></span>
+        </td>
+    </tr>
+
+</table>
+<button><a th:href="@{'/students/edit/' + ${student.id}}">Chỉnh Sửa</a></button>
+
+<tr>
+    <button><a href="" th:href="@{/students}">Thoát</a></button>
+</tr>
+</body>
+</html>

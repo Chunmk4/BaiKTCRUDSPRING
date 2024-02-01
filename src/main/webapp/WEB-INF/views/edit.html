@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List student</title>
+</head>
+<body>
+<h1>Create student form</h1>
+
+<div th:border="1px">
+    <form action="/students/update" method="post" th:object="${student}">
+        <label>NAME: </label>
+        <input type="text" required th:field="*{name}" placeholder="Name...">
+        <br>
+        <label>TheoryScore: </label>
+        <input type="number"  th:field="*{theoryScore}" placeholder="TheoryScore..." inputmode="numeric" pattern="[+-]?\d+(\.\d+)?" title="Vui lòng chỉ nhập số hoặc số thực.">
+        <br>
+        <label>PracticeScore: </label>
+        <input type="number"  th:field="*{practiceScore}" placeholder="PracticeScore..." inputmode="numeric" pattern="[+-]?\d+(\.\d+)?" title="Vui lòng chỉ nhập số hoặc số thực.">
+        <br>
+        <label>Descriptions: </label>
+        <input type="text" required th:field="*{descriptions}" placeholder="Descriptions...">
+        <br>
+        <label>Evaluation: </label>
+        <input type="text" required th:field="*{evaluation}" placeholder="Evaluation...">
+        <br>
+        <label>Class_id: </label>
+        <input type="number" required th:field="*{class_id}" placeholder="Class_id..." >
+        <br>
+        <br>
+        <button type="submit">Lưu</button>
+        <button><a th:href="@{/students}"> Thoát</a></button>
+
+    </form>
+</div>
+</body>
+</html>
